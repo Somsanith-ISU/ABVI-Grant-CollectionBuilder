@@ -5,7 +5,7 @@ permalink: /churches.html
 ---
 ## Black Churches in Iowa
 
-This page is for use by the vendor.
+This page is for use by the vendors.
 
 Suggestion for page are:
 
@@ -16,5 +16,9 @@ Suggestion for page are:
 **Current black churches in Iowa**
 
   <a href="#" >
-      <button type="button" class="btn btn-primary" onclick="window.open ('https://www.lib.iastate.edu/')">Vendor's Site</button>
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://history.iowa.gov/history')">State Historical Society of Iowa</button>
    </a>  
+
+   <a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://history.iowa.gov/history')">State Historical Society of Iowa</button>
+    </a>  

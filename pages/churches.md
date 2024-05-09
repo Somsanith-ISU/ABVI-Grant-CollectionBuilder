@@ -15,10 +15,31 @@ Suggestion for page are:
 
 **Current black churches in Iowa**
 
-  <a href="#" >
+ <a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://www.iastate.edu/')">Iowa State University</button>
+   </a> 
+
+<a href="#" >
       <button type="button" class="btn btn-primary" onclick="window.open ('https://history.iowa.gov/history')">State Historical Society of Iowa</button>
    </a>  
 
-   <a href="#" >
-      <button type="button" class="btn btn-primary" onclick="window.open ('https://history.iowa.gov/history')">State Historical Society of Iowa</button>
+<a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://www.grinnell.edu/')">Grinnell College</button>
     </a>  
+
+<a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://www.groutmuseumdistrict.org/')">Grout Museum District</button>
+   </a> 
+
+<a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://blackiowa.org/')">African American Museum of Iowa</button>
+   </a> 
+
+ <a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://www.dmpl.org/')">Des Moines Public Library</button>
+   </a> 
+
+ <a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://nodawayvalleymuseum.org/')">Nodaway Valley Historical Museum</button>
+   </a>
+

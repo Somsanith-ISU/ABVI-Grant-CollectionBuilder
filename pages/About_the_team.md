@@ -40,7 +40,7 @@ insert partner image here
 [About Text]
 
 
-insert partner image here
+<img title="a title" alt="Alt text" src="/images/boo.svg">
 ## June Somsanith
 #### *Grant Assistant*
 [About Text]

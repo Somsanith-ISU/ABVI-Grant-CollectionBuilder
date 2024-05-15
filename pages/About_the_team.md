@@ -9,8 +9,7 @@ Thank you to all those who contributed to the *Amplifying Black Voices in Iowa* 
 
 <h1>Iowa State University</h1>
 
-
-<img title="a title" alt="Alt text" src="/images/boo.svg">
-## June Somsanith
-#### *Grant Assistant*
+<img src="/images/boo.svg">
+## Example Name
+#### *Position*
 [About Text]

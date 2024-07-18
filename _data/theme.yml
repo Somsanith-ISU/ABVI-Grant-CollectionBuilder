@@ -13,7 +13,10 @@ featured-image: demo_001
 home-title-y-padding: 12em # the margin from the top your title portion will appear.
 # optional: change position of background image, center, top, bottom
 home-banner-image-position: center # Default is top
-
+def make_request(url)
+  all_charcters = https://www.loc.gov/item/sn83025186/1897-01-22/ed-1/ (url)
+  JSON.parse(all_characters)
+end
 ##########
 # ITEM PAGE
 #

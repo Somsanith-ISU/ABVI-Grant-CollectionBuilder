@@ -17,6 +17,88 @@ Suggestion for page are:
 
 Sample Vignettes:
 
+{%- assign carousel-max = include.max | default: 9 -%}
+{%- assign btn-color = include.btn-color | default: "primary" -%}
+{%- assign btn-text = include.btn-text | default: "View Item" -%}
+{% if site.data.theme.carousel-child-objects == true %}
+{%- assign carousel-items = site.data[site.metadata] | where_exp: 'item','item.objectid' | where_exp: "item","item.image_small != nil or item.image_thumb != nil"-%}
+{% else %}
+{%- assign carousel-items = site.data[site.metadata] | where_exp: 'item','item.objectid and item.parentid == nil' | where_exp: "item","item.image_small != nil or item.image_thumb != nil" -%}
+{% endif %}
+
+{%- comment -%}
+    Set up carousel div
+{%- endcomment -%}
+<style>
+    #imageCarousel .carousel-item { height: {{ include.height | remove: 'px' | strip | default: '300' }}px; }
+</style>
+<div class="card mb-3">
+    {% if include.header %}<h2 class="card-header h5">{{ include.header }}</h2>{% endif %}
+    <div class="card-body">
+        {% if include.title %}<h2 class="card-title h5">{{ include.title }}</h2>{% endif %}
+        
+        <div id="imageCarousel" class="carousel slide bg-dark rounded mb-3" data-bs-ride="carousel">
+            <div id="carouselIndicators" class="carousel-indicators">
+                
+            </div>
+            <div id="carouselInner" class="carousel-inner">
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+            
+    </div>
+</div>
+{%- comment -%}
+    add slides using JS to allow for randomizing slide show
+{%- endcomment -%}
+<script>
+    /* add item data */
+    // title,objectid,image_thumb/small
+    var carouselItems = [ {% for c in carousel-items %}[ {{ c.title | escape | jsonify }}, "{{ c.objectid }}", {% if c.image_small %}{{ c.image_small | relative_url | jsonify }}{% else %}{{ c.image_thumb | relative_url | jsonify }}{% endif %}, "{{ c.parentid }}", {{ c.image_alt_text | default: c.title | escape | jsonify }} ]{% unless forloop.last %}, {% endunless %}{% endfor %}];
+    /* shuffle items */
+    carouselItems.sort(function() { return 0.5 - Math.random() });
+
+    /* add items to carousel */
+    var carousel = document.getElementById("carouselInner");
+    var carouselIndicators = document.getElementById("carouselIndicators");
+    var slides = "";
+    var indicators = "";
+    var i, itemImg, itemLink;
+    for (i=0; i < {{ carousel-items | size | at_most: carousel-max }}; i++) {
+        // calculate item image location
+        itemImg = carouselItems[i][2];
+        // calculate item link
+        if (carouselItems[i][3]){
+            itemLink = '{{ '/items/' | relative_url }}' + carouselItems[i][3] + '.html#' + carouselItems[i][1];}
+        else {
+            itemLink = '{{ '/items/' | relative_url }}' + carouselItems[i][1] + '.html';
+        }   
+        // create indicator 
+        indicator = `<button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="${i.toString()}" ${ i == 0 ? 'class="active" aria-current="true" ' : '' }aria-label="Slide ${i.toString()}"></button>`;
+        // create slide
+        slide = `<div class="carousel-item py-2${ i == 0 ? ' active' : '' }">
+            <img class="d-block h-100 mx-auto lazyload" alt="${carouselItems[i][4]}" data-src="${itemImg}">
+            <div class="carousel-caption">
+                <h3 class="carousel-item-title text-white py-2 h6">${carouselItems[i][0]}</h3>
+                <a href="${itemLink}" class="btn btn-sm btn-{{ btn-color }}">{{ btn-text }}</a>
+            </div></div>`;
+        slides += slide;
+        indicators += indicator;
+    }
+    // add indicators to page 
+    carouselIndicators.innerHTML = indicators;
+    // add slides to the page
+    carousel.innerHTML = slides;
+</script>
+
 <div class="row mb-3 justify-content-center">
     <div class="col-md-8 text-center">
         <form role="search" id="lunrSearch" onsubmit="submitFilter(); return false;">

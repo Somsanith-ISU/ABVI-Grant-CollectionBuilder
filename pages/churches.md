@@ -5,17 +5,12 @@ permalink: /churches.html
 ---
 ## Black Churches in Iowa
 
-This page is for use by the vendors.
+Sample Vignette
 
-Suggestion for page are:
+<a href="#" >
+      <button type="button" class="btn btn-primary" onclick="window.open ('https://history.iowa.gov/history')">State Historical Society of Iowa</button>
+   </a>  
 
-**Historical Black Churches in Iowa**
-
-**Notable members or pastors of said churuces**
-
-**Current black churches in Iowa**
-
-Sample Vignettes:
 
 <div class="row mb-3 justify-content-center">
     <div class="col-md-8 text-center">
